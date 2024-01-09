@@ -16,7 +16,7 @@
 
 5. That's it! You can start coding from there.
 
-# Prequisite Requirements
+# Prequisites
 
 For this project, we need to set some goals. Examples include, but not limited to:
 
