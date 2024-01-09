@@ -6,7 +6,7 @@
 
     `git clone https://github.com/Coding15life/css-project.git`
 
-3. Enter the working directory. O
+3. Enter the working directory. 
 
     `cd css-project`
 
