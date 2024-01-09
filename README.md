@@ -4,15 +4,15 @@
 
 2. Clone the whole repository
 
-`git clone https://github.com/Coding15life/css-project.git`
+    `git clone https://github.com/Coding15life/css-project.git`
 
 3. Enter the working directory. O
 
-`cd css-project`
+    `cd css-project`
 
 4. Install the packages
 
-`npm install`
+    `npm install`
 
 5. That's it! You can start coding from there.
 
