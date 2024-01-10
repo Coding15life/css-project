@@ -23,4 +23,4 @@ For this project, we need to set some goals. Examples include, but not limited t
 - [ ] Our design standards
 - [ ] Our goals for this website
 - [ ] Libraries to be used
-- [ ] Appoint someone to commit code on an alternate-day basis
+- [ ] Appoint someone to commit code on an alternate-day basiss
