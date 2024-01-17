@@ -1,3 +1,12 @@
+import PopularSports from './popular-sports';
+import SearchBar from './searchbar';
+
 export default function App() {
-    return <h1>Category Page | Javier</h1>
+    return (
+        <div class="main-content">
+            <SearchBar />
+            <br />
+            <PopularSports />
+        </div>
+    );
 }

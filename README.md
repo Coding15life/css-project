@@ -1,6 +1,6 @@
 # Project Installation
 
-1. Open the Terminal.
+1. Open the terminal (can be from Windows / Linux / Mac).
 
 2. Clone the whole repository
 
