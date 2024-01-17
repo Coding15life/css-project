@@ -1,26 +1,23 @@
 "use client";
-import Image from "next/image";
+
 import "src/app/globals.css";
+import useSWR from "swr";
+import LiveScores from "./livescores";
 
-function Player ({name, team, image}) 
-{
-  return (
-    <>
-    <h3>{name}</h3>
-    <h4>Team: {team}</h4>
-
-    <Image src={image} width={1500} height={850}/>
-    </>
-  );
-}
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App(){
+  const { data } = useSWR("/api/animals", fetcher);
   return (
     <section>
-      <h1>My Top 3 Basketball Players</h1>
-      <Player name="Stephen Curry" team="Golden State Warriors" image="/stephen curry portrait wallpaper.jpg"/>
-      <Player name="Kobe Bryant" team="Los Angeles Lakers" image="/kobe bryant dribbling wallpaper.jpg"/>
-      <Player name="Kyrie Irving" team="Dallas Mavericks" image="/kyrie irving portrait wallpaper.jpeg"/>
+      <div>{data}</div>
+      <div class="live-scores">
+            <LiveScores />
+        </div>
+      <div class="scoreboard">
+
+      </div>
+      
     </section>
   );
 }
