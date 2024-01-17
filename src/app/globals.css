@@ -11,11 +11,13 @@
     font-weight: 450;
 }
 
+/*
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
+*/
 
 h1 {
     font-family: 'Bebas Neue', sans-serif;
@@ -25,4 +27,39 @@ h1 {
 
 .input {
     text-align: center;
+}
+
+img {
+    border-radius: 10px;
+    padding: 5px;
+    width: 28%;
+    height: auto;
+    transition: .6s ease;
+    backface-visibility: hidden;
+}
+
+.sports-page {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.sports-image:hover img {
+    opacity: 0.7;
+}
+
+.sports-image:hover .sports-link {
+    opacity: 1;
+}
+
+.sports-page {
+    background-color: #1D2B53;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
 }
