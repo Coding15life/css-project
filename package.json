@@ -9,10 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-regular-svg-icons": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "autoprefixer": "^10.4.16",
     "font-awesome": "^4.7.0",
     "next": "14.0.2",
@@ -20,6 +16,7 @@
     "react": "^18",
     "react-bootstrap": "^2.9.2",
     "react-dom": "^18",
+    "react-grid-layout": "^1.4.4",
     "swr": "^2.2.4"
   },
   "devDependencies": {
