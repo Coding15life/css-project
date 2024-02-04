@@ -1,0 +1,31 @@
+/* page.module.css */
+.container {
+  font-family: 'Montserrat', sans-serif;
+  color: #1D2B53; /* Dark Blue */
+  background-color: #A8E05F; /* Light Green */
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: #7E2553; /* Purple */
+  color: #FF004D; /* Bright Red */
+  padding: 10px 0;
+  text-align: center;
+}
+
+.main {
+  padding: 20px;
+  background-color: #FAEF5D; /* Light Yellow */
+}
+
+.footer {
+  background-color: #7E2553; /* Purple */
+  color: #FAEF5D; /* Light Yellow */
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Add other styles below as needed */
