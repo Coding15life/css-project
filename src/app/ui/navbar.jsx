@@ -8,7 +8,7 @@ const Navbar = () => {
         Home
       </Link>
       <span className={styles.navitem}> | </span>
-      <Link href="/categories">
+      <Link href="/category">
         Categories
       </Link>
       <span className={styles.navitem}> | </span>
