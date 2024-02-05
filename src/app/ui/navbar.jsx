@@ -19,7 +19,7 @@ const Navbar = () => {
         <Link href="/livescores" className={styles.navitem}>
           Live Scores
         </Link>
-        <Link href="/fanzone" className={styles.navitem}> {/* Add a link to the Fan Zone page */}
+        <Link href="/fanzone" className={styles.navitem}> 
           Fan Zone
         </Link>
       </div>
