@@ -23,6 +23,14 @@ h1 {
     color: #1D2B53;
 }
 
+h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h4 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .input {
     text-align: center;
 }
