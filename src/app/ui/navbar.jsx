@@ -4,7 +4,7 @@ import styles from './navbar.module.css';
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <Link href="/">
+      <Link href="/homepage">
         Home
       </Link>
       <span className={styles.navitem}> | </span>
