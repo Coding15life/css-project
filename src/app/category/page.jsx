@@ -1,9 +1,11 @@
+"use client";
 import PopularSports from './popular-sports';
 import SearchBar from './searchbar';
+import styles from "./page.module.css";
 
 export default function App() {
     return (
-        <div class="main-content">
+        <div className="main-content">
             <SearchBar />
             <br />
             <PopularSports />
