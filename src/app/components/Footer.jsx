@@ -1,4 +1,4 @@
-import "src/app/globals.css";
+import "../globals.css";
 
 const Footer = () => {
   return (
