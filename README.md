@@ -13,8 +13,9 @@
 4. Install the packages
 
     `npm install`
+    `npm install bootstrap`
 
-5. That's it! You can start coding from there.
+6. That's it! You can start coding from there.
 
 # Prequisites
 
