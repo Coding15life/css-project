@@ -10,13 +10,13 @@
   align-items: center;
   padding: 0 1rem; /* Adjust padding for better spacing */
   margin-right: 0px;
-  height: 6%;
+  height: 12%;
 }
 
 .navheader {
   font-family: 'Bebas Neue', sans-serif;
   text-decoration: none;
-  color: white;
+  color: rgb(230, 207, 30);
   padding: 0px 0;
   font-size: 1.4rem;
 }
@@ -27,9 +27,9 @@
   float: left;
   color: #ffffff; /* Using the light yellow from your color scheme for text */
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif; /* Using Montserrat as per your body font */
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /* Using Montserrat as per your body font */
   text-transform: uppercase; /* Uppercase for a more stylized look */
-  letter-spacing: 0.2em; /* Adding spacing between letters */
+  letter-spacing: 0.1em; /* Adding spacing between letters */
   position: relative;
 }
 
