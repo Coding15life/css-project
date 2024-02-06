@@ -8,6 +8,10 @@
   }
 }
 
+body {
+  margin: 0;
+}
+
 h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
