@@ -1,16 +1,14 @@
 import React from 'react';
-import Navbar from './ui/navbar'; // Make sure the import path is correct for your project structure
+import Navbar from './ui/navbar'; 
+import Footer from './components/Footer';
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <html>
       <Navbar />
       <main>{children}</main>
-      <footer>
-        {/* Footer content goes here */}
-        <p>© 2024 Sports</p>
-      </footer>
-    </>
+      <Footer/>
+    </html>
   );
 };
 
