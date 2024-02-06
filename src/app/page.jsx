@@ -1,18 +1,40 @@
-import Link from 'next/link';
-import styles from './page.module.css'; // Ensure this path correctly points to your CSS file
+// "use client";
+// import React from 'react';
+// import CarouselSection from './components/CarouselSection';
+// import NewsSection from './components/NewsSection';
+// import UpcomingEventsSection from './components/UpcomingEventsSection';
+// // import "/src/app/globals.css"
 
-export default function Home() {
+// export default function App() {
+//   return (
+//     <div className="App">
+//       <CarouselSection />
+//       <NewsSection />
+//       <UpcomingEventsSection />
+//     </div>
+//   );
+
+// }
+
+"use client";
+import React from 'react';
+import CarouselSection from './components/CarouselSection';
+import NewsSection from './components/NewsSection';
+import UpcomingEventsSection from './components/UpcomingEventsSection';
+import "./home.css"
+
+//maybe add like a search by code or smth?
+function App() {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-      </header>
-      <main className={styles.main}>
-        <h1>Welcome</h1>
-        {/* Include other components and content for your home page */}
+    <div className="App">
+      <main>
+        <CarouselSection />
+        <NewsSection />
+        <UpcomingEventsSection />
       </main>
-      <footer className={styles.footer}>
-        {/* Footer content goes here */}
-      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
     </div>
   );
 }
+
+export default App;
