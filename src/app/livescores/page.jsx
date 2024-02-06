@@ -1,14 +1,14 @@
 "use client";
 
 import styles from './page.module.css';
-import "./livescores.jsx";
+import LiveScores from "./livescores.jsx";
 
 import Image from "next/image";
-//import "src/app/livescores/livescores.jsx";
+
 import { useState, useEffect } from "react";
+
 import useSWR from "swr";
 import Spinner from "react-bootstrap/Spinner";
-import LiveScores from "./livescores";
 
 import axios from 'axios';
 
@@ -39,13 +39,16 @@ function Game ({team1, team2, team1score, team2score, image1, image2})
 }
 
 
-
 export default function App()
 {
   
     return (
       <section>
-        <h1 className={styles.title}>Games</h1>
+        <div>
+          <LiveScores />
+        </div>
+        
+        {/* <h1 className={styles.title}>Games</h1> */}
         
         <div className={styles.game}>
         <Game team1="GSW" team2="ATL" team1score="119" team2score="121" image1="/gsw-logo.png" image2="/atl-logo.jpg"/>
