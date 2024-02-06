@@ -21,7 +21,7 @@ import React from 'react';
 import CarouselSection from './components/CarouselSection';
 import NewsSection from './components/NewsSection';
 import UpcomingEventsSection from './components/UpcomingEventsSection';
-import "./styles.css"
+import "./home.css"
 
 //maybe add like a search by code or smth?
 function App() {
