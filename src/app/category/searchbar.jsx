@@ -5,7 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 
 function SearchBar() {
     return (
-        <div className="searchBar">
+        <div className={styles.search}>
             <input className={styles.searchBar} placeholder="&#x1F50E;&#xFE0E;  Search..."/>
         </div>
     )
