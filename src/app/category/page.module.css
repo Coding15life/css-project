@@ -1,3 +1,6 @@
+/*
+TODO: Fix the styling of the sports categories
+*/
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .heading {
@@ -20,9 +23,53 @@
     font-weight: 450;   
 }
 
+.allImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+}
+
+.sportsCategory {
+    flex: 0 0 auto;
+}
+
 .sportsImage {
+    display: block;
+    max-width: 100%;
     border-radius: 10px;
     padding: 0px;
+    overflow: hidden;
+    position: relative; /* Ensure the parent element is positioned relatively */
+    transition: transform 0.3s ease-in-out; /* Simplified transition */
+}
+
+.sportsImage:hover {
+    transform: scale(1.3);
+}
+
+.sportsImage:hover + .sportsTitle {
+    opacity: 1; /* Make the title visible on hover */
+}
+
+.sportsImage .sportsTitle {
+    position: absolute; /* Move ontop of image */
+    top: 50%; /* Position in center vertically */
+    left: 50%;
+    transform: translate(0, 50%); /* Position in center vertically */
+    opacity: 0; /* Hide */
+    -webkit-transition: all 0.3s ease-in-out; /* Animation to fade in */
+    -ms-transition: all 0.3s ease-in-out; /* Animation to fade in */
+    transition: all 0.3s ease-in-out; /* Animation to fade in */
+    width: 100%
+}
+
+.sportsTitle:hover {
+    opacity: 1; /* Ensure the title remains visible when hovering over it */
+}  
+
+/*
+.sportsImage {
     max-width: 25%;
     height: 45%;
     margin: 3rem;
@@ -33,7 +80,7 @@
     justify-content: center;
     height: 80vh;
 }
-
+*/
 /*
 .sports-page {
     transition: .5s ease;

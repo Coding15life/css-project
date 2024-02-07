@@ -6,7 +6,9 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <Link href="/" className={styles.navheader}>
         <div>
-          <h1>Sports Sanctuary</h1>
+          <h1>
+            <div style={{color: "#FF004D", display: "inline-block"}}>Sports</div> Sanctuary
+          </h1>
         </div>
       </Link>
       <div className={styles.navlinks}>
