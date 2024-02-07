@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const BasketballVideos = () => {
   const [videos, setVideos] = useState([]);
-  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY
 
   useEffect(() => {
     const fetchVideos = async () => {
+      console.log('about to fetch');
       try {
         const response = await fetch('https://www.googleapis.com/youtube/v3/search', {
           method: 'GET',
