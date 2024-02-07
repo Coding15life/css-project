@@ -5,19 +5,6 @@ export default function Popular() {
     return (
     <div className="flex flex-col min-h-screen">
         <main className="flex-1">
-            <section className="w-full py-12 md:py-24 lg:py-32">
-                <div className="container px-4 md:px-6">
-                    <div className="flex flex-col items-center space-y-4 text-center">
-                        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                            Welcome to the Sports Sanctuary
-                        </h1>
-                        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                            Explore the world of sports with us. Learn about the rules, history, and culture of your favorite
-                            sports.
-                        </p>
-                    </div>
-                </div>
-            </section>
             <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
                 <div className="container px-4 md:px-6">
                     <div className="grid items-center justify-center gap-4 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
@@ -30,25 +17,24 @@ export default function Popular() {
                         />
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
-                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800 text-gray-100">
-                                    Basketball
+                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
+                                    Catergories
                                 </div>
-                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-100">The world's most popular sport</h2>
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-100">Trending Catergories</h2>
                                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                                    Basketball is a fast-paced team sport that involves passing, dribbling, and shooting. The goal is to
-                                    shoot a ball through the opponent's hoop.
+                                    Find out what's trending right now in the world of sports.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/category"
                                 >
                                     Learn More
                                 </Link>
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/category"
                                 >
                                     Gallery
                                 </Link>
@@ -69,25 +55,24 @@ export default function Popular() {
                         />
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
-                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">Soccer</div>
-                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The world's most popular sport</h2>
+                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800 text-gray-100">Livescores</div>
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Livescores</h2>
                                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                                    Soccer is a team sport played with a ball between two teams of eleven players on a rectangular field
-                                    with goalposts at each end.
+                                    See scores live for all of your favourite sports and teams right now! 
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/livescores"
                                 >
                                     Learn More
                                 </Link>
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/livescores"
                                 >
-                                    Gallery
+                                    Scores
                                 </Link>
                             </div>
                         </div>
@@ -106,23 +91,22 @@ export default function Popular() {
                         />
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
-                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">Tennis</div>
-                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The world's most popular sport</h2>
+                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Community</div>
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-100">Community Pages</h2>
                                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                                    Tennis is a racket sport that can be played individually against a single opponent or between two
-                                    teams of two players each.
+                                    Find communities discussing your favourite sports, moments, and matches!
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/fanzone"
                                 >
                                     Learn More
                                 </Link>
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/fanzone"
                                 >
                                     Gallery
                                 </Link>
@@ -143,22 +127,22 @@ export default function Popular() {
                         />
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
-                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">Swimming</div>
-                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The world's most popular sport</h2>
+                                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800 text-gray-100">News</div>
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Keep Up With News</h2>
                                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                                    Swimming is a water sport in which the swimmer uses their arms and legs to move through the water.
+                                    Keep up with the latest sports events happening right now using our site.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/"
                                 >
                                     Learn More
                                 </Link>
                                 <Link
                                     className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                                    href="#"
+                                    href="/"
                                 >
                                     Gallery
                                 </Link>
