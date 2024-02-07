@@ -22,15 +22,15 @@ function CarouselSection() {
           <div className="carousel-item">
             <img src="https://wallpaperfx.com/view_image/cristiano-ronaldo-real-madrid-1920x1080-wallpaper-15753.jpg" className="d-block w-100" alt="Sports Img2" style={{ width: '1920px', height: '660px' }} />
             <div className="carousel-caption d-none d-md-block">
-              <h1>Second slide</h1>
-              <p>Some representative placeholder content for the second slide.</p>
+              <h1>Ronaldo</h1>
+              <p>CHRISTIANO RONALD SUIIIIIIII</p>
             </div>
           </div>
           <div className="carousel-item">
-            <img src="img3" className="d-block w-100" alt="Sports Img 3" style={{ width: '1920px', height: '660px' }} />
+            <img src="https://images.pexels.com/photos/718952/pexels-photo-718952.jpeg?cs=srgb&dl=pexels-joe-calomeni-718952.jpg&fm=jpg" className="d-block w-100" alt="Sports Img 3" style={{ width: '1920px', height: '660px' }} />
             <div className="carousel-caption d-none d-md-block">
-              <h1>Third slide</h1>
-              <p>Some representative placeholder content for the third slide.</p>
+              <h1>HAND FOOTBALL</h1>
+              <p>Don't let your dreams be dreams -Sun Tzu</p>
             </div>
           </div>
         </div>
