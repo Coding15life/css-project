@@ -1,13 +1,59 @@
+// "use client";
+
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+
+// function NBAScoresPage() {
+//   const [scores, setScores] = useState([]);
+
+//   useEffect(() => {
+//     const fetchScores = async () => {
+//       try {
+//         const response = await axios.get('https://www.balldontlie.io/api/v1/games');
+//         setScores(response.data.data);
+        
+//       } catch (error) {
+//         console.error('Error fetching scores:', error);
+//       }
+//     };
+
+//     fetchScores();
+//     console.log("Hello World");
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>NBA Scores</h1>
+//       <ul>
+//         {scores.map(score => (
+//           <li key={score.id}>
+//             {score.home_team.full_name} {score.home_team_score} - {score.visitor_team_score} {score.visitor_team.full_name}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default NBAScoresPage;
+
+
+
+
+
+
+
+
+
+//-----------------------------------------------------------
+
 "use client";
 
-import "src/app/globals.css";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import useSWR from "swr";
-import Spinner from "react-bootstrap/Spinner";
-import LiveScores from "./livescores";
+import styles from './page.module.css';
+//import LiveScores from "./livescores.jsx";
 
-import axios from 'axios';
+import Image from "next/image";
+import NBAScoresPage from './livescores.jsx';
 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -17,20 +63,18 @@ function Game ({team1, team2, team1score, team2score, image1, image2})
   return (  
     <>
   <div class="container">
-    <div class="logo">
-      <Image src={image1} width={100} height={100}/>
-    </div>
-    <div class="logo">
-      <Image src={image2} width={100} height={100}/>
+    <div className={styles.gameName}>
+      <Image src={image1} width={140} height={150}/>
+      <div className={styles.teamName}>
+      <h2>{team1} vs {team2}</h2>
+        </div>
+      <Image src={image2} width={140} height={110}/>
     </div>
   </div>
-
     
-    <div class="teamName">
-      <h2>{team1} vs {team2}</h2>
-    </div>
-    <div class="teamScore">
+    <div className={styles.teamScore}>
       <h3>{team1score} — {team2score}</h3>
+      <h5>Q4: 4:35</h5>
     </div>
     
     </>
@@ -38,38 +82,77 @@ function Game ({team1, team2, team1score, team2score, image1, image2})
 }
 
 
-// use vanilla fetch as fetcher
-// deserialize the fetched data as json
-
-
 export default function App()
 {
   
     return (
-      <section>
-        <h1 class="title">Games</h1>
+      <NBAScoreBoard />
+      // <section>
         
-        <div class="game">
-        <Game team1="GSW" team2="ATL" team1score="119" team2score="121" image1="/gsw-logo.png" image2="/atl-logo.jpg"/>
-        </div>
-        <p> 
-          <h1>------------------------------</h1>
-        </p>
-        <div class="game">
-        <Game team1="GSW" team2="DEN" team1score="127" team2score="135" image1="/gsw-logo.png" image2="/atl-logo.jpg"/>
-        </div>
-        <p> 
-          <h1>------------------------------</h1>
-        </p>
-        <div class="game">
-        <Game team1="LAC" team2="ATL" team1score="162" team2score="92" image1="/gsw-logo.png" image2="/atl-logo.jpg"/>
-        </div>
-      </section>
+      //   {/* <h1 className={styles.title}>Games</h1> */}
+        
+      //   {/* <div className={styles.game}>
+      //   <Game team1="GSW" team2="ATL" team1score="119" team2score="121" image1="/gsw-logo.png" image2="/atl-logo.jpg"/>
+      //   </div>
+      //   <div className={styles.line}></div>
+
+      //   <div className={styles.game}>
+      //   <Game team1="GSW" team2="DEN" team1score="127" team2score="135" image1="/gsw-logo.png" image2="/denver-logo.png"/>
+      //   </div>
+      //   <div className={styles.line}></div>
+
+      //   <div className={styles.game}>
+      //   <Game team1="GSW" team2="OKC" team1score="162" team2score="92" image1="/gsw-logo.png" image2="/okc-logo.png"/>
+      //   </div> */}
+      // </section>
     );
 }
 
 
-const key = process.env.BASKETBALL_API_KEY;
+//-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+export function getData()
+{
+  const [data, setData] = useState([]);
+  //const { data, error, isLoading } = useSWR("https://freeipapi.com/api/json/", fetcher);
+
+  useEffect(() => {
+    fetch('https://api.data.gov.sg/v1/environment/2-hour-weather-forecast')
+       .then((response) => response.json())
+       .then((data) => {
+          console.log(data);
+          setPosts(data);
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
+ }, []);
+
+ return (
+  <div>
+    <h2>Data: {data.name}</h2>
+  </div>
+ )
+}
+*/
+
+
+
+
+//const key = process.env.BASKETBALL_API_KEY;
 
 /*
 const getData = () => {
