@@ -1,16 +1,59 @@
+// "use client";
+
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+
+// function NBAScoresPage() {
+//   const [scores, setScores] = useState([]);
+
+//   useEffect(() => {
+//     const fetchScores = async () => {
+//       try {
+//         const response = await axios.get('https://www.balldontlie.io/api/v1/games');
+//         setScores(response.data.data);
+        
+//       } catch (error) {
+//         console.error('Error fetching scores:', error);
+//       }
+//     };
+
+//     fetchScores();
+//     console.log("Hello World");
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>NBA Scores</h1>
+//       <ul>
+//         {scores.map(score => (
+//           <li key={score.id}>
+//             {score.home_team.full_name} {score.home_team_score} - {score.visitor_team_score} {score.visitor_team.full_name}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default NBAScoresPage;
+
+
+
+
+
+
+
+
+
+//-----------------------------------------------------------
+
 "use client";
 
 import styles from './page.module.css';
-import LiveScores from "./livescores.jsx";
+//import LiveScores from "./livescores.jsx";
 
 import Image from "next/image";
-
-import { useState, useEffect } from "react";
-
-import useSWR from "swr";
-import Spinner from "react-bootstrap/Spinner";
-
-import axios from 'axios';
+import NBAScoresPage from './livescores.jsx';
 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -43,29 +86,41 @@ export default function App()
 {
   
     return (
-      <section>
-        <div>
-          <LiveScores />
-        </div>
+      <NBAScoreBoard />
+      // <section>
         
-        {/* <h1 className={styles.title}>Games</h1> */}
+      //   {/* <h1 className={styles.title}>Games</h1> */}
         
-        <div className={styles.game}>
-        <Game team1="GSW" team2="ATL" team1score="119" team2score="121" image1="/gsw-logo.png" image2="/atl-logo.jpg"/>
-        </div>
-        <div className={styles.line}></div>
+      //   {/* <div className={styles.game}>
+      //   <Game team1="GSW" team2="ATL" team1score="119" team2score="121" image1="/gsw-logo.png" image2="/atl-logo.jpg"/>
+      //   </div>
+      //   <div className={styles.line}></div>
 
-        <div className={styles.game}>
-        <Game team1="GSW" team2="DEN" team1score="127" team2score="135" image1="/gsw-logo.png" image2="/denver-logo.png"/>
-        </div>
-        <div className={styles.line}></div>
+      //   <div className={styles.game}>
+      //   <Game team1="GSW" team2="DEN" team1score="127" team2score="135" image1="/gsw-logo.png" image2="/denver-logo.png"/>
+      //   </div>
+      //   <div className={styles.line}></div>
 
-        <div className={styles.game}>
-        <Game team1="GSW" team2="OKC" team1score="162" team2score="92" image1="/gsw-logo.png" image2="/okc-logo.png"/>
-        </div>
-      </section>
+      //   <div className={styles.game}>
+      //   <Game team1="GSW" team2="OKC" team1score="162" team2score="92" image1="/gsw-logo.png" image2="/okc-logo.png"/>
+      //   </div> */}
+      // </section>
     );
 }
+
+
+//-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
