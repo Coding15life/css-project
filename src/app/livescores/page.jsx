@@ -1,6 +1,6 @@
 "use client";
 
-import "src/app/globals.css";
+import "../globals.css";
 import useSWR from "swr";
 import LiveScores from "./livescores";
 

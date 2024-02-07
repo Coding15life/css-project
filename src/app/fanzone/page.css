@@ -1,110 +1,37 @@
 /* page.css */
-
-/* Keep existing styles */
 .page-container {
-  padding: 20px;
-  background-color: #0a0a0a;
-  border: 1px solid #DDD;
-}
-
-.page-title {
-  font-size: 24px;
-  color: #333;
-}
-
-/* Additional styles for Fan Zone Page */
-.fan-zone {
-  font-family: 'Montserrat', sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.fan-zone-header {
-  font-size: 28px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.live-scores {
+  text-align: center; /* Aligns text to the center */
+  font-family: 'Montserrat', sans-serif; /* Sets the Montserrat font */
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center; /* Aligns children (like divs) to the center horizontally *//* Aligns children to the center vertically */
+  min-height: 100vh; /* Gives a minimum height of 100% of the viewport height */
 }
 
-.live-scores-section {
-  flex: 1;
-  margin-right: 10px;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+ul {
+  list-style: none; /* Removes bullet points from list items */
+  padding: 0; /* Removes padding */
 }
 
-.live-scores-section h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+li {
+  margin-bottom: 20px; /* Adds some space between list items */
 }
 
-.live-scores-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff; /* Change the background color to white */
+h1, h2, p {
+  margin: 10px 0; /* Adds some space above and below headings and paragraphs */
 }
 
-.live-scores-table th,
-.live-scores-table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
+/* Style for video thumbnails */
+img {
+  max-width: 100%; /* Ensures image is not larger than its container */
+  height: auto; /* Keeps the aspect ratio of the image */
 }
 
-.live-scores-table th {
-  background-color: #333;
-  color: #fff;
+/* Style for video links */
+a {
+  color: #000; /* Sets the text color for links */
+  text-decoration: none; /* Removes underline from links */
 }
 
-.player-statistics {
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.player-statistics h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.player-statistics-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff; /* Change the background color to white */
-}
-
-.player-statistics-table th,
-.player-statistics-table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-.player-statistics-table th {
-  background-color: #333;
-  color: #fff;
-}
-
-.custom-button {
-  background-color: #333; /* Dark grey background color */
-  color: #fff; /* White text color */
-  font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
-  padding: 10px 20px; /* Adjust padding as needed */
-  border: none;
-  cursor: pointer;
-}
-
-.custom-button:hover {
-  background-color: #555; /* Darker grey on hover */
-}
-
+/* Additional specific styles */
+/* ... */

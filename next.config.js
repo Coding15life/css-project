@@ -1,8 +1,5 @@
-/** @type {import('next').NextConfig} */
+// next.config.js
 const nextConfig = {
-  experimental: {
-    reactMode: 'concurrent', // Enable Concurrent Mode for Client Components
-  },
   // Other Next.js configurations...
 };
 
