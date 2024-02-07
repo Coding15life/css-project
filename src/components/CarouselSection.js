@@ -10,7 +10,7 @@ function CarouselSection() {
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div className="carousel-inner container-fluid py-3 my-3">
+        <div className="carousel-inner container-fluid py-3 my-3 bg-gray-100 dark:bg-gray-800"> 
           <div className="carousel-item active">
             <img src="https://cf-images.us-east-1.prod.boltdns.net/v1/static/1704050871/c83e8237-d720-4772-b27d-38493284a16b/839b0444-887c-4f32-9e7d-28dd4d097606/1280x720/match/image.jpg" className="d-block w-100" alt="Sports Img3" style={{ width: '1920px', height: '660px' }} />
             <div className="carousel-caption d-none d-md-block" style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
