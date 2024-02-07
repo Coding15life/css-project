@@ -14,8 +14,8 @@ const images = [
 export default function Home() {
 	return (
 		<main>
-			<Popular></Popular>
 			<CarouselSection />
+			<Popular></Popular>
 			<NewsSection />
 		</main>
 	);
