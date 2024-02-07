@@ -1,3 +1,4 @@
+/*
 import React, { useState, useEffect } from 'react';
 
 const BasketballVideos = () => {
@@ -53,4 +54,38 @@ const BasketballVideos = () => {
   );
 };
 
+export default BasketballVideos;*/
+import React, { useState, useEffect } from 'react';
+
+const BasketballVideos = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=NBA+highlights&type=video&key=AIzaSyDaiPgz2-lGZLN18ecQAXPaQQVVvpOAlyI')
+      .then(response => response.json())
+      .then(data => {
+        setVideos(data.items);
+        console.log(data.items); // Check if the items are being logged
+      })
+      .catch(error => console.error('Error fetching videos:', error));
+  }, []);
+
+  return (
+    <div>
+      <h2>Basketball Videos</h2>
+      <ul>
+        {videos.map(video => (
+          <li key={video.id.videoId}>
+            <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
+              <p>{video.snippet.title}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 export default BasketballVideos;
+
+
