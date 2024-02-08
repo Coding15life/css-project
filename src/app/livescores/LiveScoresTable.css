@@ -1,25 +1,5 @@
 /*LiveScoresTable.css*/
 
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 40px;
-  text-align: center;
-
-}
-
-h3 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
-}
-
-h4 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-h5 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 
 form {
   display: flex;
@@ -28,10 +8,14 @@ form {
 }
 
 input {
-  border-color: #140a4a;
-  margin: 20px;
-  border-radius: 20px;
-  padding: 10px 25px;
+  display: flex;
+  justify-content: center;
+
+  padding: 15px;
+  margin-bottom: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 
@@ -52,6 +36,7 @@ input {
 .fetchbutton:hover {
   background-color: #0c6b07;
 }
+
 
 
 .infobutton {
@@ -86,8 +71,6 @@ input {
   border-spacing: 0 10px;
   /* Set spacing between rows */
 
-  padding: 15px;
-  margin: 20px;
   text-align: center;
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -123,57 +106,4 @@ input {
 
 .scorestable tr:hover {
   background-color: #ecd784;
-}
-
-
-
-
-
-
-
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: 2px solid #333;
-  background-color: #eee;
-  color: #333;
-  border-radius: 5px;
-}
-
-.button:hover {
-  background-color: #ddd;
-}
-
-.button:active {
-  background-color: #ccc;
-}
-
-
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: 2px solid #333;
-  background-color: #eee;
-  color: #333;
-  border-radius: 5px;
-}
-
-.button:hover {
-  background-color: #ddd;
-}
-
-.button:active {
-  background-color: #ccc;
 }

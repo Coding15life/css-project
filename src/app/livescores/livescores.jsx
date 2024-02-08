@@ -6,11 +6,18 @@ import axios from 'axios';
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+
 import "./LiveScoresTable.css";
 import styles from "./page.module.css";
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
+import PlayerStatsTable from './playerstats/playerstats';
+
 
 
 //from chatgpt
@@ -72,178 +79,188 @@ export function MyDatePicker() {
   );
 }
 
+// function GetStats(id) {
+//   return (
+//     <>
+//       <div>
+//         <h1>Player Stats</h1>
+//         <Button href="/livescores" className={styles.returnbutton} variant="primary" size="lg">
+//           Return
+//         </Button>{' '}
+
+//         {loading && <Spinner className={styles.spinner} animation="border" role="status">
+//           <h3 className="visually-hidden">Loading player stats...</h3>
+//         </Spinner>}
+//         {error && <p>Error: {error.message}</p>}
+
+//         <table class="scorestable">
+//           <thead>
+//             <tr>
+//               <th>PLAYER</th>
+//               <th>TEAM</th>
+//               <th>PTS</th>
+//               <th>REB</th>
+//               <th>AST</th>
+
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {playerStats.map(stats => (
+//               <tr key={stats.id}>
+//                 <td>{stats.player.first_name} {stats.player.last_name}</td>
+//                 <td>{stats.team.full_name}</td>
+//                 <td>{stats.pts}</td>
+//                 <td>{stats.reb}</td>
+//                 <td>{stats.ast}</td>
+
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </div>
+//     </>
+//   )
+// }
 
 
-let gameStatsId = "";
 
-function GetStats(id) {
+export function handleClick(gameId, date) { 
+  console.log("Game ID: " + gameId);
+  console.log("Date: " + date);
   return (
-    <>
-      <div>
-        <h1>Player Stats</h1>
-        <Button href="/livescores" className={styles.returnbutton} variant="primary" size="lg">
-          Return
-        </Button>{' '}
-
-        {loading && <Spinner className={styles.spinner} animation="border" role="status">
-          <h3 className="visually-hidden">Loading player stats...</h3>
-        </Spinner>}
-        {error && <p>Error: {error.message}</p>}
-
-        <table class="scorestable">
-          <thead>
-            <tr>
-              <th>PLAYER</th>
-              <th>TEAM</th>
-              <th>PTS</th>
-              <th>REB</th>
-              <th>AST</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            {playerStats.map(stats => (
-              <tr key={stats.id}>
-                <td>{stats.player.first_name} {stats.player.last_name}</td>
-                <td>{stats.team.full_name}</td>
-                <td>{stats.pts}</td>
-                <td>{stats.reb}</td>
-                <td>{stats.ast}</td>
-
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
-  )
+    gameId, date
+  );
 }
 
 
+const NBAScoreBoard = () => {
+  const [games, setGames] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
-
-
-let getStats = false;
-
-function NBAScoreBoard() {
-  const [scores, setScores] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
-  const fetchScores = async () => {
-    try {
+
+  useEffect(() => {
+    const fetchGames = async () => {
       const formattedDate = selectedDate.toISOString().split('T')[0]; //gets date in ISO format, splits by T into array with 2 elements, then get the item in index 0 which is the date portion (1 will be the time portion)
-      //year-1 since the season returned is the season that the year started
-      const response = await axios.get(`https://www.balldontlie.io/api/v1/games?start_date=${formattedDate}&end_date=${formattedDate}`); //`https://www.balldontlie.io/api/v1/games?seasons[]=${year-1}&start_date=${date}&end_date=${date}`
-      setScores(response.data.data);
-      setLoading(false);
-      setError('');
-    }
-    catch (error) {
-      setScores([]);
-      setLoading(false);
-      setError("Error fetching games data");
-      console.error('Error fetching scores:', error);
-    }
-  };
+      try {
+        const response = await axios.get(`https://www.balldontlie.io/api/v1/games?start_date=${formattedDate}&end_date=${formattedDate}`); //`https://www.balldontlie.io/api/v1/games?seasons[]=${year-1}&start_date=${date}&end_date=${date}`
+        setGames(response.data.data);
+        setLoading(false);
+        setError('');
+      }
+      catch (error) {
+        setGames([]);
+        setLoading(false);
+        setError("Error fetching games data");
+        console.error('Error fetching scores:', error);
+      }
+    };
 
+    fetchGames();
+  }, [selectedDate]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetchScores();
-  };
-
-
-  const handleClick = async (gameId) => {
-    console.log(gameId);
-  }
-
-  if (getStats === true) {
-    <>
-      <div>
-        <table class="scorestable">
-          <thead>
-            <tr>
-              <th>PLAYER</th>
-              <th>TEAM</th>
-              <th>PTS</th>
-              <th>REB</th>
-              <th>AST</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            {scores.map(stats => (
-              <tr key={stats.id}>
-                <td>{stats.player.first_name} {stats.player.last_name}</td>
-                <td>{stats.team.full_name}</td>
-                <td>{stats.pts}</td>
-                <td>{stats.reb}</td>
-                <td>{stats.ast}</td>
-
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
-  }
 
   return (
-    <>
-      <div>
-        <p></p>
-        <h1 class="title">NBA Live Scoreboard</h1>
+    <div>
+      <h1 className={styles.title}>NBA Games Schedule</h1>
 
-        <form onSubmit={handleSubmit}>
-
-          <DatePicker class="datepicker" selected={selectedDate} onChange={handleDateChange} />
-          <Button class="fetchbutton" type="submit">Fetch Games</Button>
-        </form>
-
-        {loading && <Spinner animation="border" role="status">
-          <h3 className="visually-hidden">Loading scoreboard...</h3>
-        </Spinner>}
-
-        {error && <p>{error}</p>}
-
-        <table class="scorestable">
-          <thead>
-            <tr>
-              <th>GAME ID</th>
-              <th>GAME</th>
-              <th>SCORE</th>
-              <th>TIME REMAINING</th>
-              <th>STATS</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            {scores.map(game => (
-              <tr key={game.id} onClick={() => handleClick(game.id)}>
-                <td>{game.id}</td>
-                <td>{game.visitor_team.full_name} @ {game.home_team.full_name}</td>
-                <td>{game.visitor_team_score} - {game.home_team_score}</td>
-                <td>{game.time}</td>
-                <td><Button href="/livescores/playerstats" className="infobutton" size="sm">Info</Button>{' '}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className={styles.datepicker}>
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+          dateFormat="yyyy-MM-dd"
+        />
       </div>
-    </>
+
+      <table class="scorestable">
+        <thead>
+          <tr>
+            <th>DATE</th>
+            <th>GAME</th>
+            <th>SCORE</th>
+            <th>GAME STATS</th>
+            {/* Add more columns as needed */}
+          </tr>
+        </thead>
+        <tbody>
+          {games.map((game) => (
+            <tr key={game.id}>
+              <td>{game.date}</td>
+              <td>{game.visitor_team.full_name} vs {game.home_team.full_name}</td>
+              <td>{game.home_team_score}—{game.visitor_team_score}</td>
+              <td><Button href="/livescores/playerstats" variant="info" size="sm">View</Button></td>
+              {/* Add more columns as needed */}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
-}
+};
 
-export default NBAScoreBoard;
+export default NBAScoreBoard; 
+
+// function AlternateScoreboard () {
+// const handleSubmit = (event) => {
+//   event.preventDefault();
+//   fetchScores();
+// };
 
 
+// const handleClick = async (gameId) => {
+//   console.log(gameId);
+// }
 
 
+// return (
+//   <>
+//     <div>
+//       <p></p>
+//       <h1 class="title">NBA Live Scoreboard</h1>
 
+//       <form onSubmit={handleSubmit}>
+
+//         <DatePicker class="datepicker" selected={selectedDate} onChange={handleDateChange} />
+//         <Button class="fetchbutton" type="submit">Fetch Games</Button>
+//       </form>
+
+//       {loading && <Spinner animation="border" role="status">
+//         <h3 className="visually-hidden">Loading scoreboard...</h3>
+//       </Spinner>}
+
+//       {error && <p>{error}</p>}
+
+//       <table class="scorestable">
+//         <thead>
+//           <tr>
+//             <th>GAME ID</th>
+//             <th>GAME</th>
+//             <th>SCORE</th>
+//             <th>TIME REMAINING</th>
+//             <th>STATS</th>
+
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {scores.map(game => (
+//             <tr key={game.id} onClick={() => handleClick(game.id)}>
+//               <td>{game.id}</td>
+//               <td>{game.visitor_team.full_name} @ {game.home_team.full_name}</td>
+//               <td>{game.visitor_team_score} - {game.home_team_score}</td>
+//               <td>{game.time}</td>
+//               <td><Button href="/livescores/playerstats" className="infobutton" size="sm">Info</Button>{' '}</td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   </>
+// );
+// }
