@@ -23,7 +23,7 @@ const App = () => {
   
     return (
       <div>
-        <h1>Player Stats</h1>
+        <h1>PLAYER STATS</h1>
         <ButtonGroup className={styles.buttonGroup} aria-label="Basic example">
           {/* Define buttons with onClick handlers */}
           <Button className={styles.button} variant="primary" onClick={() => handleClick(1)} active={activeButton === 1}>Button 1</Button>

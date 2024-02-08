@@ -11,7 +11,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 import styles from "./page.module.css";
 import "./StatsTable.css";
-import { handleClick } from '../gameschedule/livescores';
+import { handleClick } from '../gameschedule/gameschedule';
 
 //from chatgpt
 const currentDate = new Date();

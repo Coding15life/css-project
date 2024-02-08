@@ -1,6 +1,6 @@
 "use client";
 
-import NBAScoreBoard from "./livescores";
+import NBAScoreBoard from "./gameschedule";
 
 export default function App() {
     return (

@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 
 import Image from "next/image";
 
-import NBAScoreBoard from './gameschedule/livescores.jsx';
+import NBAScoreBoard from './gameschedule/gameschedule.jsx';
 import PlayerStatsTable from "/src/app/livescores/playerstats/playerstats.jsx";
 
 
@@ -50,9 +50,9 @@ const MyComponent = () => {
     <>
       <div className={styles.cardGroup}>
         <Card className={styles.card} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="/nba-logo.jpg" />
+          <Card.Img className={styles.cardImage} variant="top" src="/nba-logo.jpg" />
           <Card.Body>
-            <Card.Title>NBA GAMES SCHEDULE</Card.Title>
+            <Card.Title>NBA GAME SCHEDULE</Card.Title>
             <Card.Text>
               View the most recent games of the season.
             </Card.Text>
@@ -61,7 +61,7 @@ const MyComponent = () => {
         </Card>
 
         <Card className={styles.card} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="/atl-logo.jpg" />
+          <Card.Img className={styles.cardImage} variant="top" src="/basketball.png"/>
           <Card.Body>
             <Card.Title>PLAYER STATS</Card.Title>
             <Card.Text>
@@ -71,8 +71,8 @@ const MyComponent = () => {
           </Card.Body>
         </Card>
 
-        <Card className={styles.card} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+        {/* <Card className={styles.card} style={{ width: '18rem' }}>
+          <Card.Img className={styles.cardImage} variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>
@@ -81,13 +81,13 @@ const MyComponent = () => {
             </Card.Text>
             <Button className={styles.cardbutton} variant="primary" onClick={() => handleClick(3)} active={activeButton === 3}>Go somewhere</Button>
           </Card.Body>
-        </Card>
+        </Card> */}
       </div>
 
       <div>
         {/* Render content based on activeButton */}
-        {activeButton === 1 && <div><NBAScoreBoard /></div>}
-        {activeButton === 2 && <div><PlayerStatsTable /></div>}
+        {activeButton === 1 && <div></div>}
+        {activeButton === 2 && <div></div>}
         {activeButton === 3 && <div>Content for Button 3</div>}
       </div>
     </>
@@ -103,13 +103,6 @@ export function App() {
   return (
     <>
       <NBAScoreBoard />
-      {/* <div>
-      <Switch>
-        <Route path="/" exact component={NBAScoreBoard} />
-        <Route path="/playerstats" component={PlayerStatsTable} />
-        <Redirect to="/404" />
-      </Switch>
-    </div> */}
     </>
   );
   <>

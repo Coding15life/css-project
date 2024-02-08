@@ -117,7 +117,7 @@ const NBAScoreBoard = () => {
           setLoading(false);
           setError("Error fetching games data");
           console.error('Error fetching scores:', error);
-      }
+        }
       }
     };
 
@@ -127,15 +127,17 @@ const NBAScoreBoard = () => {
 
   return (
     <div>
-      <h1 className={styles.title}>NBA Games Schedule</h1>
+      <div className={styles.dateAndTitle}>
+        <h1 className={styles.title}>NBA GAME SCHEDULE</h1>
 
-      <div className={styles.datepicker}>
-        <DatePicker
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          dateFormat="yyyy-MM-dd"
-          placeholderText="Select a date"
-        />
+        <div className={styles.datepicker}>
+          <DatePicker
+            selected={selectedDate}
+            onChange={(date) => setSelectedDate(date)}
+            dateFormat="yyyy-MM-dd"
+            placeholderText="Select a date"
+          />
+        </div>
       </div>
 
       <table class="scorestable">

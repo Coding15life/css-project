@@ -67,8 +67,30 @@
 .cardGroup {
   display: flex;
   flex-direction: row;
-  justify-content:space-evenly;
-  align-items: baseline;
+  justify-content:center;
+  align-items:center;
+  gap: 75px;
+}
+
+.cardImage {
+  width: 1000px;
+  height:200px;
+}
+
+/* from chatgpt */
+.card {
+  width:1000px; /* Set desired width */
+  height: 400px; /* Set desired height */
+
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px; /* Add margin between cards */
+  
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .cardbutton {
