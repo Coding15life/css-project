@@ -12,62 +12,125 @@ TODO: Fix the styling of the sports categories
     margin-top: 1.2rem;
     text-align: center;
 }
-
+/*
 .searchBar {
-    width: 30%;
-    border-radius: 14px;
+    width: 15%;
+    height: 6%;
+    border-radius: 10px;
     border: 2px solid black;
     padding: 13px 30px;
     font-size: 1.2em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 450;   
 }
+*/
+
+.searchBar {
+    width: 300px; /* adjust width as needed */
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* slightly visible border */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5); /* slightly visible background */
+    color: #000; /* text color */
+    outline: none; /* remove outline */
+  }
+  
+/* Button */
+.submitButton {
+    background-color: rgb(126, 37, 83); /* button color */
+    color: #fff; /* text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none; /* remove outline */
+    transition: background-color 0.3s ease;
+}
+  
+.search-button:hover {
+    background-color: rgb(106, 27, 73); /* darker color on hover */
+}
+
+.button {
+    background-color: rgba(250, 239, 93);
+}   
 
 .allImages {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.sportsCategory {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 35px;
 }
 
-.sportsCategory {
-    flex: 0 0 auto;
+/* Set a fixed height for all rows in the grid */
+.sportsCategory > div {
+display: flex;
+flex-direction: column;
+}
+
+/* Ensure all images within a row cover the container */
+.sportsCategory > div > .imageContainer {
+flex-grow: 1;
+}
+
+
+.imageContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .sportsImage {
-    display: block;
-    max-width: 100%;
-    border-radius: 10px;
-    padding: 0px;
-    overflow: hidden;
-    position: relative; /* Ensure the parent element is positioned relatively */
-    transition: transform 0.3s ease-in-out; /* Simplified transition */
+    width: 100%; 
+    height: auto; 
+    max-width: 700px;
+    max-height: 500px;
+    transition: transform 0.3s ease;
 }
 
-.sportsImage:hover {
-    transform: scale(1.3);
+.sportsTitle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: blue;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.imageContainer:hover .sportsImage{
+    transform: scale(1.2);
 }
 
 .sportsImage:hover + .sportsTitle {
-    opacity: 1; /* Make the title visible on hover */
+    opacity: 1.5; 
 }
 
-.sportsImage .sportsTitle {
-    position: absolute; /* Move ontop of image */
-    top: 50%; /* Position in center vertically */
-    left: 50%;
-    transform: translate(0, 50%); /* Position in center vertically */
-    opacity: 0; /* Hide */
-    -webkit-transition: all 0.3s ease-in-out; /* Animation to fade in */
-    -ms-transition: all 0.3s ease-in-out; /* Animation to fade in */
-    transition: all 0.3s ease-in-out; /* Animation to fade in */
-    width: 100%
+.header, .playerInfo {
+    margin-left: 40px;
 }
 
-.sportsTitle:hover {
-    opacity: 1; /* Ensure the title remains visible when hovering over it */
-}  
+.playerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
 
+.playerInfo {
+    font-size: 30px;
+}
 /*
 .sportsImage {
     max-width: 25%;
