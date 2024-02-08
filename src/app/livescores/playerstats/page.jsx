@@ -1,11 +1,17 @@
 "use client";
 
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import Link from "next/link";
 
 import Spinner from "react-bootstrap/Spinner";
-import styles from "./StatsTable.css";
+import Button from 'react-bootstrap/Button';
+
+import styles from "./page.module.css";
+
+import "./StatsTable.css";
 
 
 //from chatgpt
@@ -22,15 +28,38 @@ let gameIdClicked = null;
 
 
 
+
+// const fetchStats = async (id) => {
+//   try {
+//     getStats = true;
+//     const gameId = id;
+//     const response = await axios.get(`https://www.balldontlie.io/api/v1/stats?game_ids[]=${gameId}`); //`https://www.balldontlie.io/api/v1/games?seasons[]=${year-1}&start_date=${date}&end_date=${date}`
+//     setScores(response.data.data);
+//     setLoading(false);
+//     setError('');
+//   }
+//   catch (error) {
+//     setScores([]);
+//     setLoading(false);
+//     setError("Error fetching stats data");
+//     console.error('Error fetching stats:', error);
+//   }
+// };
+
+
+
+
+
+
 export default function PlayerStatsTable() {
     const [playerStats, setPlayerStats] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-  
+    
     useEffect(() => {
       const fetchPlayerStats = async () => {
         try {
-          const response = await axios.get(`https://www.balldontlie.io/api/v1/stats?game.id=${gameIdClicked}`);
+          const response = await axios.get(`https://www.balldontlie.io/api/v1/stats?game_ids[]=1038270`);
           setPlayerStats(response.data.data);
           setLoading(false);
         } catch (error) {
@@ -46,10 +75,15 @@ export default function PlayerStatsTable() {
     return (
       <div>
         <h1>Player Stats</h1>
-        {loading && <Spinner animation="border" role="status">
+        <Button href="/livescores" className={styles.returnbutton} variant="primary" size="lg">
+          Return
+        </Button>{' '}
+
+        {loading && <Spinner className={styles.spinner} animation="border" role="status">
                 <h3 className="visually-hidden">Loading player stats...</h3>
-              </Spinner>}
+                    </Spinner>}
         {error && <p>Error: {error.message}</p>}
+
         <table class="scorestable">
           <thead>
             <tr>
@@ -58,8 +92,7 @@ export default function PlayerStatsTable() {
               <th>PTS</th>
               <th>REB</th>
               <th>AST</th>
-              <th>GAME ID</th>
-              <th>GAME </th>
+              
             </tr>
           </thead>
           <tbody>
@@ -70,8 +103,7 @@ export default function PlayerStatsTable() {
                 <td>{stats.pts}</td>
                 <td>{stats.reb}</td>
                 <td>{stats.ast}</td>
-                <td>{stats.game.id}</td>
-                <td>{stats.game.status}</td>
+                
               </tr>
             ))}
           </tbody>
