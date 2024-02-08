@@ -13,6 +13,7 @@ import styles from "./page.module.css";
 
 import "./StatsTable.css";
 
+import { handleClick } from '../livescores';
 
 //from chatgpt
 const currentDate = new Date();
@@ -24,7 +25,7 @@ const day = currentDate.getDate().toString().padStart(2, '0');
 const todayDate = `${year}-${month}-${day}`;
 
 
-export default function PlayerStatsTable() {
+export default function PlayerStatsTable({id, date}) {
     const [playerStats, setPlayerStats] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -32,7 +33,7 @@ export default function PlayerStatsTable() {
     useEffect(() => {
       const fetchPlayerStats = async () => {
         try {
-          const response = await axios.get(`https://www.balldontlie.io/api/v1/stats?game_ids[]=1038270`);
+          const response = await axios.get(`https://www.balldontlie.io/api/v1/stats?game_ids[]=${id}&start_date=${date}`);
           setPlayerStats(response.data.data);
           setLoading(false);
         } catch (error) {
@@ -43,7 +44,7 @@ export default function PlayerStatsTable() {
       };
   
       fetchPlayerStats();
-    }, []);
+    }, [id, date]);
   
     return (
       <div>
