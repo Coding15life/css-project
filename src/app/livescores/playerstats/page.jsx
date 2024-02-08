@@ -10,7 +10,7 @@ import styles from "./page.module.css";
 import PlayerStatsTable from "./playerstats";
 
 
-
+const gameId = localStorage.getItem('GameID');
 
 const App = () => {
     // State to manage the active button and content visibility
@@ -25,7 +25,7 @@ const App = () => {
       <>
       <div>
         <h1 className={styles.title}>PLAYER STATS</h1>
-      <PlayerStatsTable />
+      <PlayerStatsTable id={gameId}/>
       </div>
       
       </>

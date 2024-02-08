@@ -13,6 +13,10 @@ import styles from "./page.module.css";
 import "./StatsTable.css";
 import { handleClick } from '../gameschedule/gameschedule';
 
+
+
+
+
 //from chatgpt
 const currentDate = new Date();
 
@@ -25,7 +29,7 @@ const todayDate = `${year}-${month}-${day}`;
 
 
 
-export default function PlayerStatsTable({ id }) {
+export default function PlayerStatsTable() {
   const [playerStats, setPlayerStats] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,7 +37,7 @@ export default function PlayerStatsTable({ id }) {
   useEffect(() => {
     const fetchPlayerStats = async () => {
       try {
-        const response = await axios.get(`https://www.balldontlie.io/api/v1/stats?game_ids[]=${id}&per_page=50`);
+        const response = await axios.get(`https://www.balldontlie.io/api/v1/stats?game_ids[]=${1038261}&per_page=50`);
         setPlayerStats(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -44,7 +48,7 @@ export default function PlayerStatsTable({ id }) {
     };
 
     fetchPlayerStats();
-  }, [ id ]);
+  }, []);
 
   return (
     <div>

@@ -67,7 +67,7 @@ const MyComponent = () => {
             <Card.Text>
               View all players' stats
             </Card.Text>
-            <Button className={styles.cardbutton} variant="primary" onClick={() => handleClick(2)} active={activeButton === 2}>Go somewhere</Button>
+            <Button href="/livescores/playerstats" className={styles.cardbutton} variant="primary" onClick={() => handleClick(2)} active={activeButton === 2}>VIEW</Button>
           </Card.Body>
         </Card>
 

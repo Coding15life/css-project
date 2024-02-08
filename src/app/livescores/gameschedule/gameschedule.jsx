@@ -13,6 +13,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 
+let gameId = "";
+localStorage.setItem('GameID', gameId);
+
 //from chatgpt
 
 const formatDate = (date) => {
@@ -124,6 +127,9 @@ const NBAScoreBoard = () => {
     fetchGames();
   }, [selectedDate]);
 
+  const handleClick = (id) => {
+    gameId = id;
+  }
 
   return (
     <div>
@@ -158,7 +164,7 @@ const NBAScoreBoard = () => {
               <td>{game.id}</td>
               <td>{game.visitor_team.full_name} vs {game.home_team.full_name}</td>
               <td>{game.home_team_score}—{game.visitor_team_score}</td>
-              <td><Button href="/livescores/playerstats" variant="info" size="sm">View</Button></td>
+              <td><Button href="/livescores/playerstats" variant="info" size="sm" onClick={() => handleClick(game.id)}>View</Button></td>
               {/* Add more columns as needed */}
             </tr>
           ))}
