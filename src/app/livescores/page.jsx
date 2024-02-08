@@ -4,14 +4,12 @@ import styles from './page.module.css';
 
 import React, { useState, useEffect } from 'react';
 
-import ReactDOM from 'react-dom';
-import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom';
-import { Route, Switch, Redirect } from 'react-router-dom';
-
+import { Button, ButtonGroup } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 
 import Image from "next/image";
 
-import NBAScoreBoard from './livescores.jsx';
+import NBAScoreBoard from './gameschedule/livescores.jsx';
 import PlayerStatsTable from "/src/app/livescores/playerstats/playerstats.jsx";
 
 
@@ -39,18 +37,72 @@ function Game({ team1, team2, team1score, team2score, image1, image2 }) {
 }
 
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <NBAScoreBoard />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+const MyComponent = () => {
+  // State to manage the active button and content visibility
+  const [activeButton, setActiveButton] = useState(null);
 
+  // Function to handle button click
+  const handleClick = (buttonId) => {
+    setActiveButton(buttonId);
+  };
 
-export default function App() {
   return (
     <>
-    <NBAScoreBoard />
+      <div className={styles.cardGroup}>
+        <Card className={styles.card} style={{ width: '18rem' }}>
+          <Card.Img variant="top" src="/nba-logo.jpg" />
+          <Card.Body>
+            <Card.Title>NBA GAMES SCHEDULE</Card.Title>
+            <Card.Text>
+              View the most recent games of the season.
+            </Card.Text>
+            <Button href="/livescores/gameschedule" className={styles.cardbutton} variant="primary" onClick={() => handleClick(1)} active={activeButton === 1}>VIEW</Button>
+          </Card.Body>
+        </Card>
+
+        <Card className={styles.card} style={{ width: '18rem' }}>
+          <Card.Img variant="top" src="/atl-logo.jpg" />
+          <Card.Body>
+            <Card.Title>PLAYER STATS</Card.Title>
+            <Card.Text>
+              View all players' stats
+            </Card.Text>
+            <Button className={styles.cardbutton} variant="primary" onClick={() => handleClick(2)} active={activeButton === 2}>Go somewhere</Button>
+          </Card.Body>
+        </Card>
+
+        <Card className={styles.card} style={{ width: '18rem' }}>
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+            <Button className={styles.cardbutton} variant="primary" onClick={() => handleClick(3)} active={activeButton === 3}>Go somewhere</Button>
+          </Card.Body>
+        </Card>
+      </div>
+
+      <div>
+        {/* Render content based on activeButton */}
+        {activeButton === 1 && <div><NBAScoreBoard /></div>}
+        {activeButton === 2 && <div><PlayerStatsTable /></div>}
+        {activeButton === 3 && <div>Content for Button 3</div>}
+      </div>
+    </>
+  );
+};
+
+export default MyComponent;
+
+
+
+
+export function App() {
+  return (
+    <>
+      <NBAScoreBoard />
       {/* <div>
       <Switch>
         <Route path="/" exact component={NBAScoreBoard} />

@@ -1,0 +1,42 @@
+.h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    
+}
+
+.h3 {
+  font-size: 60px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color:black;
+}
+
+.h4 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.h5 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.title {
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+    font-size: 0p5x;
+
+    margin: 30px;
+  }
+
+.datepicker {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+    width: 100%;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input {
+    width: 100%;
+  }

@@ -39,9 +39,42 @@
 .spinner {
   position: absolute; /* Set position to absolute */
   top: 100px; /* Adjust top position as needed */
-  left: 40px;
+  left: 150px;
 }
 
+
+.buttonGroup {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color:#bda42a;
+  border-color: #000000;
+  border-width: 1px;
+}
+
+.button:hover {
+  background-color: #998024;
+  border-color: #000000;
+}
+
+.button:active {
+  background-color: #998024;
+  border-color: #000000;
+}
+
+.button:focus {
+  background-color: #998024;
+  border-color: #000000;
+}
+
+.button {
+  background-color: #998024;
+  border-color: #000000;
+}
 
 /* from chatgpt */
 .returnbutton {
@@ -62,7 +95,7 @@
   border-radius: 5px;
 }
 
-.returnbutton:click {
+.returnbutton:active {
   background-color: #998024; 
 }
 

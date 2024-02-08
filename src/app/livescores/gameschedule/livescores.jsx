@@ -3,20 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
-
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Route, Switch, Redirect } from 'react-router-dom';
 
 import "./LiveScoresTable.css";
 import styles from "./page.module.css";
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
-import PlayerStatsTable from './playerstats/playerstats';
 
 
 
@@ -79,58 +72,15 @@ export function MyDatePicker() {
   );
 }
 
-// function GetStats(id) {
-//   return (
-//     <>
-//       <div>
-//         <h1>Player Stats</h1>
-//         <Button href="/livescores" className={styles.returnbutton} variant="primary" size="lg">
-//           Return
-//         </Button>{' '}
-
-//         {loading && <Spinner className={styles.spinner} animation="border" role="status">
-//           <h3 className="visually-hidden">Loading player stats...</h3>
-//         </Spinner>}
-//         {error && <p>Error: {error.message}</p>}
-
-//         <table class="scorestable">
-//           <thead>
-//             <tr>
-//               <th>PLAYER</th>
-//               <th>TEAM</th>
-//               <th>PTS</th>
-//               <th>REB</th>
-//               <th>AST</th>
-
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {playerStats.map(stats => (
-//               <tr key={stats.id}>
-//                 <td>{stats.player.first_name} {stats.player.last_name}</td>
-//                 <td>{stats.team.full_name}</td>
-//                 <td>{stats.pts}</td>
-//                 <td>{stats.reb}</td>
-//                 <td>{stats.ast}</td>
-
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-//     </>
-//   )
-// }
-
-
-
-export function handleClick(gameId, date) { 
+export function handleClick(gameId, date) {
   console.log("Game ID: " + gameId);
   console.log("Date: " + date);
   return (
     gameId, date
   );
 }
+
+
 
 
 const NBAScoreBoard = () => {
@@ -141,25 +91,33 @@ const NBAScoreBoard = () => {
   const [error, setError] = useState('');
 
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+  const handleClearDate = () => {
+    setSelectedDate(todayDate);
+  }
 
 
   useEffect(() => {
     const fetchGames = async () => {
-      const formattedDate = selectedDate.toISOString().split('T')[0]; //gets date in ISO format, splits by T into array with 2 elements, then get the item in index 0 which is the date portion (1 will be the time portion)
-      try {
-        const response = await axios.get(`https://www.balldontlie.io/api/v1/games?start_date=${formattedDate}&end_date=${formattedDate}`); //`https://www.balldontlie.io/api/v1/games?seasons[]=${year-1}&start_date=${date}&end_date=${date}`
-        setGames(response.data.data);
-        setLoading(false);
-        setError('');
+
+      if (selectedDate === null) {
+        handleClearDate();
+        alert("Please enter a date. ");
       }
-      catch (error) {
-        setGames([]);
-        setLoading(false);
-        setError("Error fetching games data");
-        console.error('Error fetching scores:', error);
+      else {
+        const formattedDate = formatDate(selectedDate) //.toISOString().split('T')[0]; //gets date in ISO format, splits by T into array with 2 elements, then get the item in index 0 which is the date portion (1 will be the time portion)
+
+        try {
+          const response = await axios.get(`https://www.balldontlie.io/api/v1/games?start_date=${formattedDate}&end_date=${formattedDate}`); //`https://www.balldontlie.io/api/v1/games?seasons[]=${year-1}&start_date=${date}&end_date=${date}`
+          setGames(response.data.data);
+          setLoading(false);
+          setError('');
+        }
+        catch (error) {
+          setGames([]);
+          setLoading(false);
+          setError("Error fetching games data");
+          console.error('Error fetching scores:', error);
+      }
       }
     };
 
@@ -176,6 +134,7 @@ const NBAScoreBoard = () => {
           selected={selectedDate}
           onChange={(date) => setSelectedDate(date)}
           dateFormat="yyyy-MM-dd"
+          placeholderText="Select a date"
         />
       </div>
 
@@ -183,6 +142,7 @@ const NBAScoreBoard = () => {
         <thead>
           <tr>
             <th>DATE</th>
+            <th>GAME ID</th>
             <th>GAME</th>
             <th>SCORE</th>
             <th>GAME STATS</th>
@@ -193,6 +153,7 @@ const NBAScoreBoard = () => {
           {games.map((game) => (
             <tr key={game.id}>
               <td>{game.date}</td>
+              <td>{game.id}</td>
               <td>{game.visitor_team.full_name} vs {game.home_team.full_name}</td>
               <td>{game.home_team_score}—{game.visitor_team_score}</td>
               <td><Button href="/livescores/playerstats" variant="info" size="sm">View</Button></td>
@@ -205,7 +166,7 @@ const NBAScoreBoard = () => {
   );
 };
 
-export default NBAScoreBoard; 
+export default NBAScoreBoard;
 
 // function AlternateScoreboard () {
 // const handleSubmit = (event) => {
