@@ -14,6 +14,9 @@ const Navbar = () => {
       <div className={styles.navlinks}>
         <a href="/" className={styles.navitem}>
           Home
+        </a>        
+        <a href="/news" className={styles.navitem}>
+          News
         </a>
         <Link href="/category" className={styles.navitem}>
           Categories
