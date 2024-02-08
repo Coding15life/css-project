@@ -4,17 +4,17 @@ import styles from './navbar.module.css';
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <Link href="/" className={styles.navheader}>
+      <a href="/" className={styles.navheader}>
         <div>
           <h1>
             <div style={{color: "#FF004D", display: "inline-block"}}>Sports</div> Sanctuary
           </h1>
         </div>
-      </Link>
+      </a>
       <div className={styles.navlinks}>
-        <Link href="/" className={styles.navitem}>
+        <a href="/" className={styles.navitem}>
           Home
-        </Link>
+        </a>
         <Link href="/category" className={styles.navitem}>
           Categories
         </Link>
