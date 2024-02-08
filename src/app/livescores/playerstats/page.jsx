@@ -20,21 +20,31 @@ const App = () => {
     const handleClick = (buttonId) => {
       setActiveButton(buttonId);
     };
-  
+
     return (
+      <>
       <div>
-        <h1>PLAYER STATS</h1>
-        <ButtonGroup className={styles.buttonGroup} aria-label="Basic example">
-          {/* Define buttons with onClick handlers */}
-          <Button className={styles.button} variant="primary" onClick={() => handleClick(1)} active={activeButton === 1}>Button 1</Button>
-          <Button className={styles.button} variant="primary" onClick={() => handleClick(2)} active={activeButton === 2}>Button 2</Button>
-        </ButtonGroup>
-  
-        {/* Render content based on activeButton */}
-        {activeButton === 1 && <div><PlayerStatsTable id="1038257"/></div>}
-        {activeButton === 2 && <div><PlayerStatsTable id="1038260"/></div>}
+        <h1 className={styles.title}>PLAYER STATS</h1>
+      <PlayerStatsTable />
       </div>
-    );
+      
+      </>
+    )
+  
+    // return (
+    //   <div>
+    //     <h1 className={styles.title}>PLAYER STATS</h1>
+    //     <ButtonGroup className={styles.buttonGroup} aria-label="Basic example">
+    //       {/* Define buttons with onClick handlers */}
+    //       <Button className={styles.button} variant="primary" onClick={() => handleClick(1)} active={activeButton === 1}>Button 1</Button>
+    //       <Button className={styles.button} variant="primary" onClick={() => handleClick(2)} active={activeButton === 2}>Button 2</Button>
+    //     </ButtonGroup>
+  
+    //     {/* Render content based on activeButton */}
+    //     {activeButton === 1 && <div><PlayerStatsTable id="1038257"/></div>}
+    //     {activeButton === 2 && <div><PlayerStatsTable id="1038260"/></div>}
+    //   </div>
+    // );
   };
   
   export default App;
