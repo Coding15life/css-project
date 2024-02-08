@@ -16,7 +16,6 @@ export default function Home() {
 		<main>
 			<CarouselSection />
 			<Popular></Popular>
-			<NewsSection />
 		</main>
 	);
 }
