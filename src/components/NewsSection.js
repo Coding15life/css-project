@@ -1,3 +1,5 @@
+import Navbar from "../app/ui/navbar";
+
 async function getSportsNews() {
     try {
         let res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=10&apiKey=${process.env.NEWS_API_KEY}`);
