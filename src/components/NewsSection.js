@@ -2,7 +2,7 @@ import Navbar from "../app/ui/navbar";
 
 async function getSportsNews() {
     try {
-        let res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=10&apiKey=${process.env.NEWS_API_KEY}`);
+        let res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=12&apiKey=${process.env.NEWS_API_KEY}`);
 
         if (!res.ok) {
             // This will activate the closest `error.js` Error Boundary
@@ -26,7 +26,7 @@ export default async function NewsSection() {
             <h2 className="text-2xl font-bold mb-4">Latest News</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredNews.map((article, index) => (
-                    <div className="flex flex-col bg-gray-100 p-4 rounded-lg" key={index}>
+                    <div className="flex flex-col bg-gray-100 dark:bg-gray-200 p-4 rounded-lg" key={index}>
                         <div className="flex justify-center">
                             <img
                                 alt={article.title}
