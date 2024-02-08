@@ -5,13 +5,13 @@ function CarouselSection() {
   return (
     <div>
       <section className="w-full py-12 md:py-24 lg:py-32">
-			<div className="container px-4 md:px-6">
-				<div className="flex flex-col items-center space-y-4 text-center">
-				<h1 style={{ fontSize: '3rem', fontWeight: '700', lineHeight: '1.2' }}>Welcome to the Sports Sanctuary</h1>
-				<p style={{ maxWidth: '700px', color: '#4B5563' }}>Explore the world of sports with us. Find out more about recent games, headlines, and anything sports-related.</p>
-				</div>
-			</div>
-			</section>
+	<div className="container px-4 md:px-6">
+		<div className="flex flex-col items-center space-y-4 text-center">
+			<h1 style={{ fontSize: '3rem', fontWeight: '700', lineHeight: '1.2' }}>Welcome to the Sports Sanctuary</h1>
+			<p style={{ maxWidth: '700px', color: '#4B5563' }}>Explore the world of sports with us. Find out more about recent games, headlines, and anything sports-related.</p>
+		</div>
+	</div>
+	</section>
       <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
