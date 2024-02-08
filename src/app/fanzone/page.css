@@ -1,58 +1,61 @@
+/* Rex Joseph S10255849 */
+
+/* Styles for the main header of the fan zone section */
 .fanzone-header {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-size: 32px; /* Adjust the size as needed */
-  font-weight: bold; /* Makes text bold */
-  text-decoration: underline; /* Underlines the text */
-  margin-bottom: 1em; /* Adds space below the header */
+  font-family: 'Montserrat', sans-serif; /* Specifies the font family for a modern, clean look */
+  text-align: center; /* Centers the header text horizontally */
+  font-size: 32px; /* Sets the size of the font, making it prominent */
+  font-weight: bold; /* Enhances the text to be bold, making it stand out */
+  text-decoration: underline; /* Adds an underline to the text for emphasis */
+  margin-bottom: 1em; /* Adds space below the header to separate it from content */
 }
 
+/* Styles for the headers within each sports video section */
 .sports-header {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-size: 24px; /* Adjust the size as needed to be smaller than .fanzone-header */
-  font-weight: bold; /* Makes text bold */
-  text-decoration: underline; /* Underlines the text */
-  /* Other styles remain unchanged */
+  font-family: 'Montserrat', sans-serif; /* Maintains consistency in font family with the main header */
+  text-align: center; /* Centers these headers horizontally as well */
+  font-size: 24px; /* Slightly smaller font size than the fanzone-header for hierarchical visual structure */
+  font-weight: bold; /* Keeps the text bold for visibility and emphasis */
+  text-decoration: underline; /* Continues the underline theme for emphasis */
+  /* Additional styles could be added here as needed */
 }
 
+/* Basic styling for links wrapping video items, setting up positioning context */
 .video-carousel-item .video-link {
-    position: relative;
-    display: block;
+    position: relative; /* Establishes a positioning context for absolute positioned children */
+    display: block; /* Ensures the link takes up the full available width */
 }
 
+/* Container for video thumbnails, establishing position context for overlays */
 .video-carousel-item .video-thumbnail-wrapper {
-    position: relative;
+    position: relative; /* Allows absolute positioning of the play button inside */
 }
 
+/* Styling for the play button overlay */
 .video-carousel-item .video-thumbnail-wrapper .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem; /* Adjust size as needed */
-    color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    position: absolute; /* Positions the play button absolutely within its parent */
+    top: 50%; /* Centers the button vertically */
+    left: 50%; /* Centers the button horizontally */
+    transform: translate(-50%, -50%); /* Offsets the button to truly center it, accounting for its own dimensions */
+    font-size: 3rem; /* Sets a large font size for the play icon to make it visible */
+    color: white; /* Sets the color of the play button to white for contrast */
+    opacity: 0; /* Initially hides the play button */
+    transition: opacity 0.3s ease; /* Animates the opacity for a smooth fade-in effect */
 }
 
+/* Reveals the play button on hover */
 .video-carousel-item .video-thumbnail-wrapper:hover .play-button {
-    opacity: 1;
+    opacity: 1; /* Makes the play button fully visible on hover */
 }
 
+/* Darkens the thumbnail image on hover to enhance focus on the play button */
 .video-carousel-item .video-thumbnail-wrapper:hover img {
-    filter: brightness(50%);
+    filter: brightness(50%); /* Reduces the brightness of the image for a dimming effect */
 }
 
-
-.baseball-videos-section {
-  margin-top: 2rem; /* Adjust the space as needed */
-}
-
-.soccer-videos-section {
-  margin-top: 2rem; /* Adjust the space as needed */
-}
-
+/* Styling for different sports video sections, adding vertical spacing */
+.baseball-videos-section,
+.soccer-videos-section,
 .football-videos-section {
-  margin-top: 2rem; /* Adjust the space as needed */
+  margin-top: 2rem; /* Adds top margin to create space between sections */
 }
