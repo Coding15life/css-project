@@ -11,6 +11,7 @@ import styles from "./page.module.css";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+require('dotenv').config();
 
 
 let gameId = "";
@@ -93,10 +94,15 @@ const NBAScoreBoard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-
   const handleClearDate = () => {
     setSelectedDate(todayDate);
   }
+
+
+  const apiKey = process.env.BASKETBALL_API_KEY;
+  const headers = {
+    'Authorization': '4e57a800-64ba-4686-b201-9e123c179795',
+  };
 
 
   useEffect(() => {
@@ -109,8 +115,17 @@ const NBAScoreBoard = () => {
       else {
         const formattedDate = formatDate(selectedDate) //.toISOString().split('T')[0]; //gets date in ISO format, splits by T into array with 2 elements, then get the item in index 0 which is the date portion (1 will be the time portion)
 
+        console.log(process.env.BASKETBALL_API_KEY);
+        console.log(headers);
+
         try {
-          const response = await axios.get(`https://www.balldontlie.io/api/v1/games?start_date=${formattedDate}&end_date=${formattedDate}`); //`https://www.balldontlie.io/api/v1/games?seasons[]=${year-1}&start_date=${date}&end_date=${date}`
+          const response = await axios.get('http://localhost:3000/games', {
+            params: {
+              start_date: formattedDate, 
+              end_date: formattedDate
+            }
+          })
+          //const response = await axios.get(`https://www.balldontlie.io/api/v1/games?start_date=${formattedDate}&end_date=${formattedDate}`, { headers: {} }); //`https://www.balldontlie.io/api/v1/games?seasons[]=${year-1}&start_date=${date}&end_date=${date}`
           setGames(response.data.data);
           setLoading(false);
           setError('');
